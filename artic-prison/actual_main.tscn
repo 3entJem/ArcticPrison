@@ -2,8 +2,13 @@
 
 [ext_resource type="Script" uid="uid://bfxrnrbn726w4" path="res://player_actions.gd" id="1_sut3r"]
 [ext_resource type="Script" uid="uid://b6eswwyeg0sec" path="res://pickup.gd" id="2_cefeh"]
+[ext_resource type="Texture2D" uid="uid://0i4ldvg17j5o" path="res://art/Snowball.png" id="3_25pio"]
 [ext_resource type="Script" uid="uid://vpluo6sfbo36" path="res://ui.gd" id="3_ts7ob"]
 [ext_resource type="Script" uid="uid://c6l2u2lp2sr0d" path="res://slots.gd" id="4_lfgmk"]
+[ext_resource type="Texture2D" uid="uid://1pvpbciuxrym" path="res://art/Toothpaste.png" id="6_2b4dj"]
+[ext_resource type="Script" uid="uid://dxbacpnh07n5m" path="res://boiler.gd" id="6_4o2no"]
+[ext_resource type="Script" uid="uid://d0lk1yk4g3chl" path="res://pickup_toothpaste.gd" id="6_xrg4o"]
+[ext_resource type="Script" uid="uid://x466neaf1myu" path="res://boiler_drop_zone.gd" id="7_gjvxy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6t8we"]
 size = Vector2(1149, 647)
@@ -16,8 +21,6 @@ size = Vector2(151, 205)
 [sub_resource type="CircleShape2D" id="CircleShape2D_6t8we"]
 radius = 51.47815
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_vyapf"]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nsymq"]
 size = Vector2(1154, 34)
 
@@ -29,6 +32,33 @@ size = Vector2(1154, 34)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_edhd3"]
 size = Vector2(178, 157)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_6t8we"]
+
+[sub_resource type="Gradient" id="Gradient_gjvxy"]
+colors = PackedColorArray(0.22670749, 0.22670749, 0.22670746, 1, 0.48962224, 0.48962224, 0.48962218, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gjvxy"]
+gradient = SubResource("Gradient_gjvxy")
+width = 80
+height = 200
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="Gradient" id="Gradient_vyapf"]
+offsets = PackedFloat32Array(0, 0.41269842, 0.6825397, 0.8968254)
+colors = PackedColorArray(0, 1, 0, 1, 1, 1, 0.07058824, 1, 1, 0.43137255, 0, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6t8we"]
+gradient = SubResource("Gradient_vyapf")
+width = 80
+height = 200
+use_hdr = true
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f8t7s"]
+size = Vector2(114, 29)
 
 [node name="actual_main" type="Node2D" unique_id=114400913]
 
@@ -54,18 +84,26 @@ position = Vector2(-8.000008, -3.9999695)
 scale = Vector2(-148.8434, 195.53073)
 texture = SubResource("PlaceholderTexture2D_6t8we")
 
-[node name="Pickup" type="Area2D" parent="." unique_id=764891563]
+[node name="Snowball" type="Area2D" parent="." unique_id=764891563]
 position = Vector2(864, 480)
 script = ExtResource("2_cefeh")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Pickup" unique_id=1514940430]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Snowball" unique_id=1514940430]
 shape = SubResource("CircleShape2D_6t8we")
 debug_color = Color(0.9782639, 0.92961544, 0.93524504, 0.41960785)
 
-[node name="Sprite2D" type="Sprite2D" parent="Pickup" unique_id=389513972]
-position = Vector2(-1.0000019, 2)
-scale = Vector2(-68.099976, 69.74767)
-texture = SubResource("PlaceholderTexture2D_vyapf")
+[node name="Sprite2D" type="Sprite2D" parent="Snowball" unique_id=389513972]
+position = Vector2(-4.999981, -5.0000095)
+scale = Vector2(-2.9413886, 3.012556)
+texture = ExtResource("3_25pio")
+
+[node name="DragSurface" type="Control" parent="Snowball" unique_id=906859342]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -45.0
+offset_top = -43.0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="floor" type="StaticBody2D" parent="." unique_id=1145563762]
 position = Vector2(575, 596)
@@ -90,13 +128,21 @@ offset_left = 4.0
 offset_top = 2.0
 offset_right = 1148.0
 offset_bottom = 179.0
+mouse_filter = 0
 alignment = 1
+
+[node name="EmptyLeft" type="TextureRect" parent="UI/HBoxContainer" unique_id=428856542]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 5.0
 
 [node name="Slot1" type="TextureRect" parent="UI/HBoxContainer" unique_id=153921879]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 3.0
 texture = SubResource("CanvasTexture_edhd3")
+expand_mode = 3
+stretch_mode = 5
 script = ExtResource("4_lfgmk")
 
 [node name="Slot2" type="TextureRect" parent="UI/HBoxContainer" unique_id=1331136089]
@@ -104,6 +150,8 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 3.0
 texture = SubResource("CanvasTexture_f8t7s")
+expand_mode = 3
+stretch_mode = 5
 script = ExtResource("4_lfgmk")
 
 [node name="Slot3" type="TextureRect" parent="UI/HBoxContainer" unique_id=890660790]
@@ -111,12 +159,56 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 3.0
 texture = SubResource("CanvasTexture_g0ssm")
+expand_mode = 3
+stretch_mode = 5
 script = ExtResource("4_lfgmk")
 
+[node name="EmptyRight" type="TextureRect" parent="UI/HBoxContainer" unique_id=726449653]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 5.0
+
 [node name="boiler" type="StaticBody2D" parent="." unique_id=1031897542]
-position = Vector2(4, 2)
+position = Vector2(95, 487)
+input_pickable = true
+script = ExtResource("6_4o2no")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="boiler" unique_id=432962572]
-position = Vector2(92, 466)
+position = Vector2(-5, -2)
 shape = SubResource("RectangleShape2D_edhd3")
 debug_color = Color(0.19080901, 0.051861934, 0.04693909, 0.41960785)
+
+[node name="Sprite2D" type="Sprite2D" parent="boiler" unique_id=604625839]
+position = Vector2(-3, 3.0517578e-05)
+scale = Vector2(-169.33386, 149.36208)
+texture = SubResource("CanvasTexture_6t8we")
+
+[node name="BoilerDropZone" type="Control" parent="boiler" unique_id=214056464]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -90.0
+offset_top = -73.0
+offset_right = 87.0
+offset_bottom = 76.0
+script = ExtResource("7_gjvxy")
+
+[node name="TempBar" type="TextureProgressBar" parent="boiler" unique_id=1136484888]
+offset_left = -77.0
+offset_top = -293.0
+offset_right = 4.0
+offset_bottom = -83.0
+fill_mode = 3
+texture_under = SubResource("GradientTexture2D_gjvxy")
+texture_progress = SubResource("GradientTexture2D_6t8we")
+
+[node name="Toothpaste" type="Area2D" parent="." unique_id=877288434]
+position = Vector2(1032, 568)
+script = ExtResource("6_xrg4o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Toothpaste" unique_id=1817851137]
+position = Vector2(-9, 8)
+shape = SubResource("RectangleShape2D_f8t7s")
+debug_color = Color(0.7748654, 0.4170576, 0.39848754, 0.41960785)
+
+[node name="Sprite2D" type="Sprite2D" parent="Toothpaste" unique_id=2004513102]
+texture = ExtResource("6_2b4dj")

@@ -1,34 +1,97 @@
 [gd_scene format=3 uid="uid://ildbyyh0hps2"]
 
 [ext_resource type="Script" uid="uid://bfxrnrbn726w4" path="res://player_actions.gd" id="1_sut3r"]
-[ext_resource type="Script" uid="uid://b6eswwyeg0sec" path="res://pickup.gd" id="2_cefeh"]
-[ext_resource type="Texture2D" uid="uid://0i4ldvg17j5o" path="res://art/Snowball.png" id="3_25pio"]
+[ext_resource type="PackedScene" uid="uid://csm8e1qx7xdtb" path="res://snowball.tscn" id="2_kobvn"]
+[ext_resource type="Texture2D" uid="uid://btyg2332yh88a" path="res://spritesheets/Prisoner888IdleSpriteSheet.png" id="2_qtnad"]
+[ext_resource type="Texture2D" uid="uid://ho83jucknsjv" path="res://spritesheets/Prisoner888WalkSpriteSheet.png" id="3_73ipq"]
 [ext_resource type="Script" uid="uid://vpluo6sfbo36" path="res://ui.gd" id="3_ts7ob"]
 [ext_resource type="Script" uid="uid://c6l2u2lp2sr0d" path="res://slots.gd" id="4_lfgmk"]
-[ext_resource type="Texture2D" uid="uid://1pvpbciuxrym" path="res://art/Toothpaste.png" id="6_2b4dj"]
 [ext_resource type="Script" uid="uid://dxbacpnh07n5m" path="res://boiler.gd" id="6_4o2no"]
-[ext_resource type="Script" uid="uid://d0lk1yk4g3chl" path="res://pickup_toothpaste.gd" id="6_xrg4o"]
+[ext_resource type="Texture2D" uid="uid://c8i3w2jiiw0j8" path="res://art/InventoryBox.png" id="6_mjj66"]
 [ext_resource type="Script" uid="uid://x466neaf1myu" path="res://boiler_drop_zone.gd" id="7_gjvxy"]
+[ext_resource type="Script" uid="uid://ckabpc8nm58fx" path="res://camera_2d.gd" id="10_qtnad"]
+[ext_resource type="Script" uid="uid://c1awl4akx4qw2" path="res://item_spawner.gd" id="11_73ipq"]
+[ext_resource type="PackedScene" uid="uid://dqaploue0enqp" path="res://water.tscn" id="11_p6yd1"]
+[ext_resource type="PackedScene" uid="uid://dujwruehcrt7l" path="res://ice_bucket.tscn" id="12_mjj66"]
+[ext_resource type="PackedScene" uid="uid://dym4c241n3gcb" path="res://toothpaste.tscn" id="13_gnh5f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6t8we"]
 size = Vector2(1149, 647)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vyapf"]
-size = Vector2(151, 205)
+size = Vector2(147.5, 215.5)
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_6t8we"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_73ipq"]
+atlas = ExtResource("2_qtnad")
+region = Rect2(0, 0, 158, 245)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_6t8we"]
-radius = 51.47815
+[sub_resource type="AtlasTexture" id="AtlasTexture_p6yd1"]
+atlas = ExtResource("2_qtnad")
+region = Rect2(158, 0, 158, 245)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mjj66"]
+atlas = ExtResource("2_qtnad")
+region = Rect2(0, 245, 158, 245)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gnh5f"]
+atlas = ExtResource("2_qtnad")
+region = Rect2(158, 245, 158, 245)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x4pxf"]
+atlas = ExtResource("3_73ipq")
+region = Rect2(0, 0, 158, 245)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u751x"]
+atlas = ExtResource("3_73ipq")
+region = Rect2(158, 0, 158, 245)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_14axr"]
+atlas = ExtResource("3_73ipq")
+region = Rect2(0, 245, 158, 245)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xm6a3"]
+atlas = ExtResource("3_73ipq")
+region = Rect2(158, 245, 158, 245)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6t8we"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_73ipq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p6yd1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mjj66")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gnh5f")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x4pxf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u751x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_14axr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xm6a3")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nsymq"]
 size = Vector2(1154, 34)
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_edhd3"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_f8t7s"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_g0ssm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_edhd3"]
 size = Vector2(178, 157)
@@ -57,8 +120,11 @@ use_hdr = true
 fill_from = Vector2(0, 1)
 fill_to = Vector2(0, 0)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_f8t7s"]
-size = Vector2(114, 29)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g0ssm"]
+size = Vector2(293, 654)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0pngy"]
+size = Vector2(3493.5, 236)
 
 [node name="actual_main" type="Node2D" unique_id=114400913]
 
@@ -75,35 +141,17 @@ position = Vector2(434, 504)
 script = ExtResource("1_sut3r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1318306967]
-position = Vector2(-7, -3)
+position = Vector2(-8.75, -8.25)
 shape = SubResource("RectangleShape2D_vyapf")
 debug_color = Color(0.010695745, 0.0007719771, 0.0036187435, 0.41960785)
 
-[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1524205434]
-position = Vector2(-8.000008, -3.9999695)
-scale = Vector2(-148.8434, 195.53073)
-texture = SubResource("PlaceholderTexture2D_6t8we")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player" unique_id=381695499]
+position = Vector2(-8, -11)
+sprite_frames = SubResource("SpriteFrames_6t8we")
+animation = &"walk"
 
-[node name="Snowball" type="Area2D" parent="." unique_id=764891563]
+[node name="Snowball" parent="." unique_id=895186104 instance=ExtResource("2_kobvn")]
 position = Vector2(864, 480)
-script = ExtResource("2_cefeh")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Snowball" unique_id=1514940430]
-shape = SubResource("CircleShape2D_6t8we")
-debug_color = Color(0.9782639, 0.92961544, 0.93524504, 0.41960785)
-
-[node name="Sprite2D" type="Sprite2D" parent="Snowball" unique_id=389513972]
-position = Vector2(-4.999981, -5.0000095)
-scale = Vector2(-2.9413886, 3.012556)
-texture = ExtResource("3_25pio")
-
-[node name="DragSurface" type="Control" parent="Snowball" unique_id=906859342]
-layout_mode = 3
-anchors_preset = 0
-offset_left = -45.0
-offset_top = -43.0
-offset_right = 40.0
-offset_bottom = 40.0
 
 [node name="floor" type="StaticBody2D" parent="." unique_id=1145563762]
 position = Vector2(575, 596)
@@ -114,16 +162,42 @@ position = Vector2(2, 35)
 shape = SubResource("RectangleShape2D_nsymq")
 debug_color = Color(0, 0, 0, 0.41960785)
 
-[node name="UI" type="Control" parent="." unique_id=2061804098]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 1150.0
-offset_bottom = 644.0
-mouse_filter = 2
+[node name="background_room1" type="Area2D" parent="." unique_id=1104818476]
+position = Vector2(1164, 30)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="background_room1" unique_id=1081403986]
+position = Vector2(560.5, 292.5)
+shape = SubResource("RectangleShape2D_6t8we")
+
+[node name="floor2" type="StaticBody2D" parent="." unique_id=324218738]
+position = Vector2(1725, 596)
+disable_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="floor2" unique_id=1475980396]
+position = Vector2(2, 35)
+shape = SubResource("RectangleShape2D_nsymq")
+debug_color = Color(0, 0, 0, 0.41960785)
+
+[node name="background_room2" type="Area2D" parent="." unique_id=1599852486]
+position = Vector2(2317, 30)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="background_room2" unique_id=784570442]
+position = Vector2(560.5, 292.5)
+shape = SubResource("RectangleShape2D_6t8we")
+
+[node name="floor3" type="StaticBody2D" parent="." unique_id=943991227]
+position = Vector2(2878, 596)
+disable_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="floor3" unique_id=601467353]
+position = Vector2(2, 35)
+shape = SubResource("RectangleShape2D_nsymq")
+debug_color = Color(0, 0, 0, 0.41960785)
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=447120042]
 script = ExtResource("3_ts7ob")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI" unique_id=429079500]
-layout_mode = 0
 offset_left = 4.0
 offset_top = 2.0
 offset_right = 1148.0
@@ -140,7 +214,7 @@ size_flags_stretch_ratio = 5.0
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 3.0
-texture = SubResource("CanvasTexture_edhd3")
+texture = ExtResource("6_mjj66")
 expand_mode = 3
 stretch_mode = 5
 script = ExtResource("4_lfgmk")
@@ -149,7 +223,7 @@ script = ExtResource("4_lfgmk")
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 3.0
-texture = SubResource("CanvasTexture_f8t7s")
+texture = ExtResource("6_mjj66")
 expand_mode = 3
 stretch_mode = 5
 script = ExtResource("4_lfgmk")
@@ -158,7 +232,7 @@ script = ExtResource("4_lfgmk")
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 3.0
-texture = SubResource("CanvasTexture_g0ssm")
+texture = ExtResource("6_mjj66")
 expand_mode = 3
 stretch_mode = 5
 script = ExtResource("4_lfgmk")
@@ -201,14 +275,51 @@ fill_mode = 3
 texture_under = SubResource("GradientTexture2D_gjvxy")
 texture_progress = SubResource("GradientTexture2D_6t8we")
 
-[node name="Toothpaste" type="Area2D" parent="." unique_id=877288434]
-position = Vector2(1032, 568)
-script = ExtResource("6_xrg4o")
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1858568117]
+position = Vector2(571, 323)
+script = ExtResource("10_qtnad")
+right_wall_x = 3456.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Toothpaste" unique_id=1817851137]
-position = Vector2(-9, 8)
-shape = SubResource("RectangleShape2D_f8t7s")
-debug_color = Color(0.7748654, 0.4170576, 0.39848754, 0.41960785)
+[node name="ItemSpawner" type="Node2D" parent="." unique_id=1007138236]
+position = Vector2(-151, 16)
+script = ExtResource("11_73ipq")
+snowball_scene = ExtResource("2_kobvn")
+water_scene = ExtResource("11_p6yd1")
+ice_bucket_scene = ExtResource("12_mjj66")
+toothpaste_scene = ExtResource("13_gnh5f")
+min_spawn_x = 225.0
 
-[node name="Sprite2D" type="Sprite2D" parent="Toothpaste" unique_id=2004513102]
-texture = ExtResource("6_2b4dj")
+[node name="SpawnTimer" type="Timer" parent="ItemSpawner" unique_id=55024324]
+wait_time = 5.0
+autostart = true
+
+[node name="LeftBlocker" type="StaticBody2D" parent="." unique_id=378416905]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftBlocker" unique_id=891144266]
+position = Vector2(-156.5, 317)
+shape = SubResource("RectangleShape2D_g0ssm")
+debug_color = Color(0, 0, 0, 0.41960785)
+
+[node name="RightBlocker" type="StaticBody2D" parent="." unique_id=1109201346]
+position = Vector2(-17, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightBlocker" unique_id=1612538585]
+position = Vector2(3614, 319)
+shape = SubResource("RectangleShape2D_g0ssm")
+debug_color = Color(0, 0, 0, 0.41960785)
+
+[node name="TopBlocker" type="StaticBody2D" parent="." unique_id=1156501449]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopBlocker" unique_id=769459339]
+position = Vector2(1736, -122)
+shape = SubResource("RectangleShape2D_0pngy")
+debug_color = Color(1.0829419e-07, 0.09117261, 0.11392661, 0.41960785)
+
+[node name="BottomBlocker" type="StaticBody2D" parent="." unique_id=507897270]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomBlocker" unique_id=841470886]
+position = Vector2(1722.25, 764)
+shape = SubResource("RectangleShape2D_0pngy")
+debug_color = Color(1.0829419e-07, 0.09117261, 0.11392661, 0.41960785)
+
+[node name="Toothpaste" parent="." unique_id=733947747 instance=ExtResource("2_kobvn")]

@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dujwruehcrt7l"]
+
+[ext_resource type="PackedScene" uid="uid://csm8e1qx7xdtb" path="res://snowball.tscn" id="1_5vq05"]
+[ext_resource type="Texture2D" uid="uid://bwywfx367xo23" path="res://art/IceBucket.png" id="2_fl2vc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qmoj4"]
+size = Vector2(167, 161)
+
+[node name="IceBucket" unique_id=895186104 instance=ExtResource("1_5vq05")]
+item_name = "Ice Bucket"
+cooldown_value = 10.0
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=292174305]
+position = Vector2(0.5, -2.5)
+shape = SubResource("RectangleShape2D_qmoj4")
+
+[node name="Sprite2D" parent="." index="1" unique_id=2009964966]
+position = Vector2(8.999992, -3.9999847)
+scale = Vector2(1.3720978, 1.3720981)
+texture = ExtResource("2_fl2vc")
+
+[node name="DragSurface" parent="." index="2" unique_id=1043990987]
+offset_left = -87.0
+offset_top = -89.0
+offset_right = 89.0
+offset_bottom = 81.0

@@ -7,12 +7,14 @@ var target_position: float = 0.0
 var has_target: bool = false
 var target_item: Area2D = null
 
+
+@onready var anim = $AnimatedSprite2D
+
 func _ready() -> void:
 	target_position = global_position.x
 
 func _unhandled_input(event):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-
 		var clicked_item = checkForClickedItem()
 		if clicked_item != null:
 			target_item = clicked_item
@@ -47,6 +49,21 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, walk_spd)
 		
 	move_and_slide()
+	
+	
+	if anim != null:
+		if abs(velocity.x) > 1.0:
+			
+			anim.play("walk")
+			
+			
+			if velocity.x < 0:
+				anim.flip_h = true   
+			elif velocity.x > 0:
+				anim.flip_h = false 
+		else:
+			
+			anim.play("idle")
 
 func checkForClickedItem() -> Area2D:
 	var space_state = get_world_2d().direct_space_state
@@ -58,10 +75,14 @@ func checkForClickedItem() -> Area2D:
 	query.collide_with_bodies = false
 	
 	var results = space_state.intersect_point(query)
-	
 	for result in results:
 		var collider = result["collider"]
 		if collider.has_method("collect"):
 			return collider
 			
 	return null
+
+func catch_up_to_screen(target_x_coordinate: float) -> void:
+	target_item = null 
+	target_position = target_x_coordinate
+	has_target = true

@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dym4c241n3gcb"]
+
+[ext_resource type="PackedScene" uid="uid://csm8e1qx7xdtb" path="res://snowball.tscn" id="1_k4va6"]
+[ext_resource type="Script" uid="uid://d0lk1yk4g3chl" path="res://pickup_toothpaste.gd" id="2_aln3f"]
+[ext_resource type="Texture2D" uid="uid://1pvpbciuxrym" path="res://art/Toothpaste.png" id="3_7rj4a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xmtv5"]
+size = Vector2(76, 27)
+
+[node name="Toothpaste" unique_id=895186104 instance=ExtResource("1_k4va6")]
+script = ExtResource("2_aln3f")
+item_name = "Toothpaste"
+cooldown_value = 2.0
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=292174305]
+position = Vector2(5, 2.5)
+shape = SubResource("RectangleShape2D_xmtv5")
+
+[node name="Sprite2D" parent="." index="1" unique_id=2009964966]
+position = Vector2(1.1444092e-05, -2.9999943)
+scale = Vector2(-0.50971323, 0.5220459)
+texture = ExtResource("3_7rj4a")
+
+[node name="DragSurface" parent="." index="2" unique_id=1043990987]
+offset_left = -34.0
+offset_top = -14.0
+offset_right = 44.0
+offset_bottom = 14.0

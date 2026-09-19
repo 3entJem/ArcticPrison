@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://b6eswwyeg0sec" path="res://pickup.gd" id="2_cefeh"]
 [ext_resource type="Script" uid="uid://vpluo6sfbo36" path="res://ui.gd" id="3_ts7ob"]
 [ext_resource type="Script" uid="uid://c6l2u2lp2sr0d" path="res://slots.gd" id="4_lfgmk"]
+[ext_resource type="Script" uid="uid://dxbacpnh07n5m" path="res://boiler.gd" id="5_25pio"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6t8we"]
 size = Vector2(1149, 647)
@@ -40,17 +41,16 @@ position = Vector2(560.5, 292.5)
 shape = SubResource("RectangleShape2D_6t8we")
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=1801955731]
-z_index = 1
-position = Vector2(434, 504)
+position = Vector2(14, 30)
 script = ExtResource("1_sut3r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1318306967]
-position = Vector2(-7, -3)
+position = Vector2(65.5, 475.5)
 shape = SubResource("RectangleShape2D_vyapf")
 debug_color = Color(0.010695745, 0.0007719771, 0.0036187435, 0.41960785)
 
 [node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1524205434]
-position = Vector2(-8.000008, -3.9999695)
+position = Vector2(64.48461, 476.1247)
 scale = Vector2(-148.8434, 195.53073)
 texture = SubResource("PlaceholderTexture2D_6t8we")
 
@@ -112,6 +112,14 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 3.0
 texture = SubResource("CanvasTexture_g0ssm")
 script = ExtResource("4_lfgmk")
+
+[node name="boilerInvis" type="TextureRect" parent="UI" unique_id=942739973]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 2.0
+offset_right = 4.0
+offset_bottom = 2.0
+script = ExtResource("5_25pio")
 
 [node name="boiler" type="StaticBody2D" parent="." unique_id=1031897542]
 position = Vector2(4, 2)

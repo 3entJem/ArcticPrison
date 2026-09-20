@@ -1,19 +1,30 @@
 [gd_scene format=3 uid="uid://ildbyyh0hps2"]
 
+[ext_resource type="Texture2D" uid="uid://dqaqm8oy1bwp5" path="res://art/BoilerRoomSceneExample.png" id="1_c8mwe"]
 [ext_resource type="Script" uid="uid://bfxrnrbn726w4" path="res://player_actions.gd" id="1_sut3r"]
 [ext_resource type="PackedScene" uid="uid://csm8e1qx7xdtb" path="res://snowball.tscn" id="2_kobvn"]
 [ext_resource type="Texture2D" uid="uid://btyg2332yh88a" path="res://spritesheets/Prisoner888IdleSpriteSheet.png" id="2_qtnad"]
 [ext_resource type="Texture2D" uid="uid://ho83jucknsjv" path="res://spritesheets/Prisoner888WalkSpriteSheet.png" id="3_73ipq"]
 [ext_resource type="Script" uid="uid://vpluo6sfbo36" path="res://ui.gd" id="3_ts7ob"]
+[ext_resource type="Texture2D" uid="uid://di5rcp4olnglu" path="res://spritesheets/Prisoner888PickUpSpriteSheet.png" id="3_u751x"]
 [ext_resource type="Script" uid="uid://c6l2u2lp2sr0d" path="res://slots.gd" id="4_lfgmk"]
+[ext_resource type="Texture2D" uid="uid://cnhttlg578vvk" path="res://art/ArcticPrison_SceneExample.png" id="5_14axr"]
 [ext_resource type="Script" uid="uid://dxbacpnh07n5m" path="res://boiler.gd" id="6_4o2no"]
 [ext_resource type="Texture2D" uid="uid://c8i3w2jiiw0j8" path="res://art/InventoryBox.png" id="6_mjj66"]
 [ext_resource type="Script" uid="uid://x466neaf1myu" path="res://boiler_drop_zone.gd" id="7_gjvxy"]
+[ext_resource type="Texture2D" uid="uid://1g4omkpo8gji" path="res://spritesheets/TimerSpriteSheet.png" id="7_gnh5f"]
+[ext_resource type="Script" uid="uid://dchel1sx333y6" path="res://pause_menu.gd" id="8_x4pxf"]
 [ext_resource type="Script" uid="uid://ckabpc8nm58fx" path="res://camera_2d.gd" id="10_qtnad"]
+[ext_resource type="FontFile" uid="uid://csn2yiu6i7b6y" path="res://Winter Draw.ttf" id="10_vjvpp"]
 [ext_resource type="Script" uid="uid://c1awl4akx4qw2" path="res://item_spawner.gd" id="11_73ipq"]
 [ext_resource type="PackedScene" uid="uid://dqaploue0enqp" path="res://water.tscn" id="11_p6yd1"]
+[ext_resource type="Texture2D" uid="uid://b5p3vcfrn7d24" path="res://art/PauseButton.png" id="12_0b8cf"]
 [ext_resource type="PackedScene" uid="uid://dujwruehcrt7l" path="res://ice_bucket.tscn" id="12_mjj66"]
 [ext_resource type="PackedScene" uid="uid://dym4c241n3gcb" path="res://toothpaste.tscn" id="13_gnh5f"]
+[ext_resource type="Texture2D" uid="uid://dwojqp2ew8enk" path="res://art/PlayButton.png" id="14_wd2yg"]
+[ext_resource type="PackedScene" uid="uid://b71j3fpq8nks0" path="res://olivia_npc.tscn" id="19_xm6a3"]
+[ext_resource type="PackedScene" uid="uid://dyxh112reb286" path="res://kiarra_npc.tscn" id="20_8sy4y"]
+[ext_resource type="PackedScene" uid="uid://ba3gnqqjnrwlw" path="res://kirra_npc.tscn" id="21_c8mwe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6t8we"]
 size = Vector2(1149, 647)
@@ -36,6 +47,14 @@ region = Rect2(0, 245, 158, 245)
 [sub_resource type="AtlasTexture" id="AtlasTexture_gnh5f"]
 atlas = ExtResource("2_qtnad")
 region = Rect2(158, 245, 158, 245)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3osa"]
+atlas = ExtResource("3_u751x")
+region = Rect2(0, 0, 196, 266)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wtjb0"]
+atlas = ExtResource("3_u751x")
+region = Rect2(196, 0, 196, 266)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x4pxf"]
 atlas = ExtResource("3_73ipq")
@@ -74,6 +93,17 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_o3osa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wtjb0")
+}],
+"loop": 0,
+"name": &"pickup",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_x4pxf")
 }, {
 "duration": 1.0,
@@ -93,10 +123,105 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nsymq"]
 size = Vector2(1154, 34)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_edhd3"]
-size = Vector2(178, 157)
+[sub_resource type="LabelSettings" id="LabelSettings_6t8we"]
+font = ExtResource("10_vjvpp")
+font_size = 70
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_6t8we"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_v2u1p"]
+atlas = ExtResource("7_gnh5f")
+region = Rect2(0, 0, 80, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8sy4y"]
+atlas = ExtResource("7_gnh5f")
+region = Rect2(80, 0, 80, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c8mwe"]
+atlas = ExtResource("7_gnh5f")
+region = Rect2(160, 0, 80, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vjvpp"]
+atlas = ExtResource("7_gnh5f")
+region = Rect2(240, 0, 80, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wqxei"]
+atlas = ExtResource("7_gnh5f")
+region = Rect2(0, 70, 80, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0b8cf"]
+atlas = ExtResource("7_gnh5f")
+region = Rect2(80, 70, 80, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wd2yg"]
+atlas = ExtResource("7_gnh5f")
+region = Rect2(160, 70, 80, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8s6rw"]
+atlas = ExtResource("7_gnh5f")
+region = Rect2(240, 70, 80, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3vtt2"]
+atlas = ExtResource("7_gnh5f")
+region = Rect2(0, 140, 80, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0p8aq"]
+atlas = ExtResource("7_gnh5f")
+region = Rect2(80, 140, 80, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ftwqc"]
+atlas = ExtResource("7_gnh5f")
+region = Rect2(160, 140, 80, 70)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vyapf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v2u1p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8sy4y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c8mwe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vjvpp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wqxei")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0b8cf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wd2yg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8s6rw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3vtt2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0p8aq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ftwqc")
+}],
+"loop": 1,
+"name": &"meter",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_x4pxf"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0.46097267, 0.4609726, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_edhd3"]
+gradient = SubResource("Gradient_x4pxf")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_edhd3"]
+size = Vector2(233, 476.5)
 
 [sub_resource type="Gradient" id="Gradient_gjvxy"]
 colors = PackedColorArray(0.22670749, 0.22670749, 0.22670746, 1, 0.48962224, 0.48962224, 0.48962218, 1)
@@ -135,10 +260,16 @@ position = Vector2(14, 30)
 position = Vector2(560.5, 292.5)
 shape = SubResource("RectangleShape2D_6t8we")
 
+[node name="Sprite2D" type="Sprite2D" parent="background_boiler" unique_id=350340324]
+position = Vector2(769.9503, 294.125)
+scale = Vector2(0.9627819, 0.9627819)
+texture = ExtResource("1_c8mwe")
+
 [node name="Player" type="CharacterBody2D" parent="." unique_id=1801955731]
 z_index = 1
 position = Vector2(434, 504)
 script = ExtResource("1_sut3r")
+walk_spd = 400.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1318306967]
 position = Vector2(-8.75, -8.25)
@@ -148,10 +279,7 @@ debug_color = Color(0.010695745, 0.0007719771, 0.0036187435, 0.41960785)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player" unique_id=381695499]
 position = Vector2(-8, -11)
 sprite_frames = SubResource("SpriteFrames_6t8we")
-animation = &"walk"
-
-[node name="Snowball" parent="." unique_id=895186104 instance=ExtResource("2_kobvn")]
-position = Vector2(864, 480)
+animation = &"pickup"
 
 [node name="floor" type="StaticBody2D" parent="." unique_id=1145563762]
 position = Vector2(575, 596)
@@ -168,6 +296,11 @@ position = Vector2(1164, 30)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="background_room1" unique_id=1081403986]
 position = Vector2(560.5, 292.5)
 shape = SubResource("RectangleShape2D_6t8we")
+
+[node name="Sprite2D" type="Sprite2D" parent="background_room1" unique_id=1341925608]
+position = Vector2(1138.125, 299.49997)
+scale = Vector2(1.5034292, 1.6556121)
+texture = ExtResource("5_14axr")
 
 [node name="floor2" type="StaticBody2D" parent="." unique_id=324218738]
 position = Vector2(1725, 596)
@@ -242,35 +375,80 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 5.0
 
+[node name="TimeLabel" type="Label" parent="UI" unique_id=1398328022]
+offset_left = 972.0
+offset_right = 1111.0
+offset_bottom = 96.0
+text = "3:00"
+label_settings = SubResource("LabelSettings_6t8we")
+
+[node name="GaugeSprite" type="AnimatedSprite2D" parent="UI" unique_id=1329968772]
+position = Vector2(1088, 126)
+scale = Vector2(1.4, 1.4)
+sprite_frames = SubResource("SpriteFrames_vyapf")
+animation = &"meter"
+
+[node name="PauseButton" type="TextureButton" parent="UI" unique_id=1818796209]
+offset_right = 101.0
+offset_bottom = 101.0
+texture_normal = ExtResource("12_0b8cf")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="PauseMenu" type="Node2D" parent="UI" unique_id=1240212990]
+process_mode = 2
+visible = false
+script = ExtResource("8_x4pxf")
+main_menu_scene_path = "uid://cpv7iu6fwaccy"
+
+[node name="pauseBackground" type="Sprite2D" parent="UI/PauseMenu" unique_id=1699206587]
+modulate = Color(0.6378432, 0.6378432, 0.63784313, 0.39215687)
+position = Vector2(575.5, 317.5)
+scale = Vector2(18.078125, 10.046875)
+texture = SubResource("GradientTexture2D_edhd3")
+
+[node name="PlayButton" type="TextureButton" parent="UI/PauseMenu" unique_id=294035915]
+offset_right = 95.0
+offset_bottom = 95.0
+texture_normal = ExtResource("14_wd2yg")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="MainMenuButton" type="Button" parent="UI/PauseMenu" unique_id=704625967]
+offset_left = 25.0
+offset_top = 203.0
+offset_right = 360.0
+offset_bottom = 294.0
+theme_override_fonts/font = ExtResource("10_vjvpp")
+theme_override_font_sizes/font_size = 60
+text = "Main Menu"
+
 [node name="boiler" type="StaticBody2D" parent="." unique_id=1031897542]
 position = Vector2(95, 487)
 input_pickable = true
 script = ExtResource("6_4o2no")
+win_scene_path = "uid://dk3k5yuqs0y5d"
+lose_scene_path = "uid://bwwgixkvuq4kt"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="boiler" unique_id=432962572]
-position = Vector2(-5, -2)
+position = Vector2(61, -212)
 shape = SubResource("RectangleShape2D_edhd3")
 debug_color = Color(0.19080901, 0.051861934, 0.04693909, 0.41960785)
-
-[node name="Sprite2D" type="Sprite2D" parent="boiler" unique_id=604625839]
-position = Vector2(-3, 3.0517578e-05)
-scale = Vector2(-169.33386, 149.36208)
-texture = SubResource("CanvasTexture_6t8we")
 
 [node name="BoilerDropZone" type="Control" parent="boiler" unique_id=214056464]
 layout_mode = 3
 anchors_preset = 0
-offset_left = -90.0
-offset_top = -73.0
-offset_right = 87.0
-offset_bottom = 76.0
+offset_left = -65.0
+offset_top = -447.0
+offset_right = 163.0
+offset_bottom = 24.0
 script = ExtResource("7_gjvxy")
 
 [node name="TempBar" type="TextureProgressBar" parent="boiler" unique_id=1136484888]
-offset_left = -77.0
-offset_top = -293.0
-offset_right = 4.0
-offset_bottom = -83.0
+offset_left = -58.0
+offset_top = -369.0
+offset_right = 23.0
+offset_bottom = -159.0
 fill_mode = 3
 texture_under = SubResource("GradientTexture2D_gjvxy")
 texture_progress = SubResource("GradientTexture2D_6t8we")
@@ -318,8 +496,19 @@ debug_color = Color(1.0829419e-07, 0.09117261, 0.11392661, 0.41960785)
 [node name="BottomBlocker" type="StaticBody2D" parent="." unique_id=507897270]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BottomBlocker" unique_id=841470886]
-position = Vector2(1722.25, 764)
+position = Vector2(1699, 767)
 shape = SubResource("RectangleShape2D_0pngy")
 debug_color = Color(1.0829419e-07, 0.09117261, 0.11392661, 0.41960785)
 
-[node name="Toothpaste" parent="." unique_id=733947747 instance=ExtResource("2_kobvn")]
+[node name="KiarraNPC" parent="." unique_id=1469966572 instance=ExtResource("20_8sy4y")]
+position = Vector2(1787, 510)
+
+[node name="KirraNPC" parent="." unique_id=1366538963 instance=ExtResource("21_c8mwe")]
+position = Vector2(2862, 473)
+
+[node name="OliviaNPC" parent="." unique_id=1650086363 instance=ExtResource("19_xm6a3")]
+position = Vector2(967, 483)
+
+[connection signal="button_down" from="UI/PauseButton" to="UI/PauseMenu" method="pause_game"]
+[connection signal="button_up" from="UI/PauseMenu/PlayButton" to="UI/PauseMenu" method="unpause_game"]
+[connection signal="button_down" from="UI/PauseMenu/MainMenuButton" to="UI/PauseMenu" method="_on_main_menu_button_pressed"]

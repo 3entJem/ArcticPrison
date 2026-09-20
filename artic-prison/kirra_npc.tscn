@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://ba3gnqqjnrwlw"]
+
+[ext_resource type="PackedScene" uid="uid://b71j3fpq8nks0" path="res://olivia_npc.tscn" id="1_vxybl"]
+[ext_resource type="Texture2D" uid="uid://dnvqevx2yayju" path="res://spritesheets/Prisoner03IdleSpriteSheet.png" id="2_vxybl"]
+[ext_resource type="Script" uid="uid://dvspll86dl51u" path="res://npc.gd" id="3_odwl2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_odwl2"]
+atlas = ExtResource("2_vxybl")
+region = Rect2(0, 0, 215, 258)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_31qm1"]
+atlas = ExtResource("2_vxybl")
+region = Rect2(215, 0, 215, 258)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jdlms"]
+atlas = ExtResource("2_vxybl")
+region = Rect2(430, 0, 215, 258)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_47pxm"]
+atlas = ExtResource("2_vxybl")
+region = Rect2(0, 258, 215, 258)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6v8sl"]
+atlas = ExtResource("2_vxybl")
+region = Rect2(215, 258, 215, 258)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e3qxt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_odwl2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_31qm1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jdlms")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_47pxm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6v8sl")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="KirraNPC" unique_id=1650086363 instance=ExtResource("1_vxybl")]
+
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=1647168458]
+sprite_frames = SubResource("SpriteFrames_e3qxt")
+script = ExtResource("3_odwl2")

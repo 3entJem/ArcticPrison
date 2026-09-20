@@ -8,9 +8,10 @@
 size = Vector2(76, 27)
 
 [node name="Toothpaste" unique_id=895186104 instance=ExtResource("1_k4va6")]
+z_index = 1
 script = ExtResource("2_aln3f")
 item_name = "Toothpaste"
-cooldown_value = 2.0
+cooldown_value = 4.0
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=292174305]
 position = Vector2(5, 2.5)

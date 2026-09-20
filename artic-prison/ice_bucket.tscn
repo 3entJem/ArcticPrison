@@ -8,7 +8,7 @@ size = Vector2(167, 161)
 
 [node name="IceBucket" unique_id=895186104 instance=ExtResource("1_5vq05")]
 item_name = "Ice Bucket"
-cooldown_value = 10.0
+cooldown_value = 20.0
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=292174305]
 position = Vector2(0.5, -2.5)

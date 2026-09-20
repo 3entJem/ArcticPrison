@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dlybbiapc2rnw"]
+
+[ext_resource type="PackedScene" uid="uid://b71j3fpq8nks0" path="res://olivia_npc.tscn" id="1_or5i6"]
+[ext_resource type="Script" uid="uid://d06ujf1cdcq3a" path="res://olivia_npcTutorial.gd" id="2_or5i6"]
+
+[node name="OliviaNpcTutorial" unique_id=1650086363 instance=ExtResource("1_or5i6")]
+script = ExtResource("2_or5i6")
+tutorial_lines = Array[String](["Heeeyy! You finally woke up! Look the Warden has given you a special opportunity.", "All you have to do to get your freedom is to manage the boiler room for a bit. Simple, right?", "Not as much as you would think. Ya see, there is a meter you must watch to keep it from going too far into the red. It go into red, we all explode, capice? and it go to far into green we all become icicles.", "You have all of these coolants around you. in order from how effective they are you have toothpaste, snowballs, water, and ice buckets.", "You do this for however long the Warden wants and you get to leave and see your family. You Ready?"])
+character_reveal_speed = 0.03
+
+[node name="SpeechBubble" parent="." index="2" unique_id=1692039123]
+visible = true

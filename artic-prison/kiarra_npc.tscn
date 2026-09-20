@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://dyxh112reb286"]
+
+[ext_resource type="PackedScene" uid="uid://b71j3fpq8nks0" path="res://olivia_npc.tscn" id="1_vsdsq"]
+[ext_resource type="Texture2D" uid="uid://bdqkmy5dm2mrb" path="res://spritesheets/Prisoner05IdleSpriteSheet.png" id="2_e3qxt"]
+[ext_resource type="Script" uid="uid://dvspll86dl51u" path="res://npc.gd" id="2_lfuth"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lfuth"]
+atlas = ExtResource("2_e3qxt")
+region = Rect2(0, 0, 148, 196)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dwgtk"]
+atlas = ExtResource("2_e3qxt")
+region = Rect2(148, 0, 148, 196)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gu74a"]
+atlas = ExtResource("2_e3qxt")
+region = Rect2(296, 0, 148, 196)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_got5f"]
+atlas = ExtResource("2_e3qxt")
+region = Rect2(0, 196, 148, 196)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e1mpm"]
+atlas = ExtResource("2_e3qxt")
+region = Rect2(148, 196, 148, 196)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_74s8s"]
+atlas = ExtResource("2_e3qxt")
+region = Rect2(296, 196, 148, 196)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pq4os"]
+atlas = ExtResource("2_e3qxt")
+region = Rect2(0, 392, 148, 196)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lo370"]
+atlas = ExtResource("2_e3qxt")
+region = Rect2(148, 392, 148, 196)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e3qxt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lfuth")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dwgtk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gu74a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_got5f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e1mpm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_74s8s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pq4os")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lo370")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="KiarraNPC" unique_id=1650086363 instance=ExtResource("1_vsdsq")]
+script = ExtResource("2_lfuth")
+dialogue_lines = Array[String](["Hello there!", "Keep an eye on that boiler temperature bar..."])
+
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=1647168458]
+sprite_frames = SubResource("SpriteFrames_e3qxt")

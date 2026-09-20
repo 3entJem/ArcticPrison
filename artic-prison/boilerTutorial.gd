@@ -24,30 +24,34 @@ var game_over: bool = false
 var level_won: bool = false
 
 func _ready() -> void:
-	
 	GlobalSettings.active_level_scene_path = scene_file_path
-	
 	heat_rate = GlobalSettings.get_current_heat_rate()
 	time_left = survival_time_seconds
+	
 	if temp_bar:
 		temp_bar.min_value = 0.0
 		temp_bar.max_value = max_temperature
 		temp_bar.value = temperature
 	update_gauge_frame()
-
+	
+	
+	if GlobalSettings.current_difficulty == "Tutorial" or GlobalSettings.tutorial_is_active:
+		set_process(false)
+		print("Boiler Security Valve: Tutorial mode detected. Processing frozen at setup.")
 
 func _process(delta: float) -> void:
-	if game_over or level_won:
+	if game_over:
 		return
+		
+	
+	if GlobalSettings.tutorial_is_active:
+		return 
+		
 	
 	temperature += heat_rate * delta
-	
-	
 	if temp_bar:
 		temp_bar.value = temperature 
-		
 	update_gauge_frame()             
-	
 	
 	time_left -= delta
 	var minutes = int(max(0.0, time_left)) / 60
@@ -55,13 +59,9 @@ func _process(delta: float) -> void:
 	if time_label:
 		time_label.text = "%02d:%02d" % [minutes, seconds]
 	
-	
-	if temperature >= max_temperature:
-		trigger_loss("Overheated!")
-	elif temperature <= 0.0:
-		trigger_loss("Frozen Over!")
-	elif time_left <= 0.0:
-		trigger_win()
+	if temperature >= max_temperature: trigger_loss("💥 Overheated!")
+	elif temperature <= 0.0: trigger_loss("Frozen Over!")
+	elif time_left <= 0.0: trigger_win()
 
 func feed_boiler(item_node: Node2D) -> void:
 	if game_over or level_won:

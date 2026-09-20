@@ -1,0 +1,113 @@
+[gd_scene format=3 uid="uid://cpv7iu6fwaccy"]
+
+[ext_resource type="Script" uid="uid://coub5mg6ueuk5" path="res://canvas_layer.gd" id="1_mbe3m"]
+[ext_resource type="FontFile" uid="uid://csn2yiu6i7b6y" path="res://Winter Draw.ttf" id="2_kyjdd"]
+
+[node name="start_scene" type="Node2D" unique_id=1215393371]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=741755259]
+script = ExtResource("1_mbe3m")
+tutorial_level_path = "uid://cnwqkwh3coebu"
+main_level_path = "uid://ildbyyh0hps2"
+
+[node name="MainOptions" type="Control" parent="CanvasLayer" unique_id=1992540512]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="NewGameButton" type="Button" parent="CanvasLayer/MainOptions" unique_id=1861976730]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.18200001
+anchor_bottom = 0.287
+offset_left = 50.0
+offset_top = 130.0
+offset_right = 359.72
+offset_bottom = 201.52
+theme_override_fonts/font = ExtResource("2_kyjdd")
+theme_override_font_sizes/font_size = 60
+text = "New Game"
+
+[node name="QuitButton" type="Button" parent="CanvasLayer/MainOptions" unique_id=229774892]
+layout_mode = 0
+offset_left = 52.0
+offset_top = 324.0
+offset_right = 373.0
+offset_bottom = 424.0
+theme_override_fonts/font = ExtResource("2_kyjdd")
+theme_override_font_sizes/font_size = 60
+text = "Quit"
+
+[node name="LevelsButton" type="Button" parent="CanvasLayer/MainOptions" unique_id=570651243]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 227.0
+offset_right = 371.0
+offset_bottom = 310.0
+theme_override_fonts/font = ExtResource("2_kyjdd")
+theme_override_font_sizes/font_size = 60
+text = "Levels"
+
+[node name="DifficultyOptions" type="Control" parent="CanvasLayer" unique_id=1455104234]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TutorialButton" type="Button" parent="CanvasLayer/DifficultyOptions" unique_id=1926819171]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 128.0
+offset_right = 372.0
+offset_bottom = 219.0
+theme_override_fonts/font = ExtResource("2_kyjdd")
+theme_override_font_sizes/font_size = 60
+text = "Tutorial"
+
+[node name="NormalButton" type="Button" parent="CanvasLayer/DifficultyOptions" unique_id=721940899]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 215.0
+offset_right = 373.0
+offset_bottom = 306.0
+theme_override_fonts/font = ExtResource("2_kyjdd")
+theme_override_font_sizes/font_size = 60
+text = "Normal
+"
+
+[node name="HardButton" type="Button" parent="CanvasLayer/DifficultyOptions" unique_id=1356271027]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 304.0
+offset_right = 377.0
+offset_bottom = 395.0
+theme_override_fonts/font = ExtResource("2_kyjdd")
+theme_override_font_sizes/font_size = 60
+text = "Hard
+
+"
+
+[node name="BackButton" type="Button" parent="CanvasLayer/DifficultyOptions" unique_id=1360812875]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 396.0
+offset_right = 379.0
+offset_bottom = 487.0
+theme_override_fonts/font = ExtResource("2_kyjdd")
+theme_override_font_sizes/font_size = 60
+text = "Back
+
+"
+
+[node name="LogoSprite" type="Sprite2D" parent="CanvasLayer" unique_id=1808411742]
+position = Vector2(29, 10)
+
+[connection signal="button_up" from="CanvasLayer/MainOptions/NewGameButton" to="CanvasLayer" method="_on_new_game_button_pressed"]
+[connection signal="button_down" from="CanvasLayer/MainOptions/QuitButton" to="CanvasLayer" method="_on_quit_button_pressed"]
+[connection signal="button_down" from="CanvasLayer/MainOptions/LevelsButton" to="CanvasLayer" method="_on_levels_button_pressed"]
+[connection signal="button_up" from="CanvasLayer/DifficultyOptions/TutorialButton" to="CanvasLayer" method="_on_tutorial_button_pressed"]
+[connection signal="button_down" from="CanvasLayer/DifficultyOptions/NormalButton" to="CanvasLayer" method="_on_normal_button_pressed"]
+[connection signal="button_up" from="CanvasLayer/DifficultyOptions/HardButton" to="CanvasLayer" method="_on_hard_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/DifficultyOptions/BackButton" to="CanvasLayer" method="_on_back_button_pressed"]

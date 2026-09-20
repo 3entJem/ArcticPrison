@@ -8,12 +8,21 @@ var has_target: bool = false
 var target_item: Area2D = null
 
 
+var is_picking_up: bool = false
+
 @onready var anim = $AnimatedSprite2D
 
 func _ready() -> void:
 	target_position = global_position.x
+	
+	if anim:
+		anim.animation_finished.connect(_on_animation_finished)
 
 func _unhandled_input(event):
+	
+	if is_picking_up:
+		return
+
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		var clicked_item = checkForClickedItem()
 		if clicked_item != null:
@@ -31,6 +40,12 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.y = 0
 	
+	
+	if is_picking_up:
+		velocity.x = 0
+		move_and_slide()
+		return
+
 	if has_target:
 		var distance_to_target = target_position - global_position.x
 		
@@ -39,9 +54,9 @@ func _physics_process(delta: float) -> void:
 			velocity.x = 0
 			has_target = false
 			
+			
 			if target_item != null and is_instance_valid(target_item):
-				target_item.collect()
-				target_item = null
+				start_pickup_sequence()
 		else:
 			var walk_direction = sign(distance_to_target)
 			velocity.x = walk_direction * walk_spd
@@ -51,19 +66,39 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 	
-	if anim != null:
+	if anim != null and not is_picking_up:
 		if abs(velocity.x) > 1.0:
-			
 			anim.play("walk")
-			
-			
 			if velocity.x < 0:
 				anim.flip_h = true   
 			elif velocity.x > 0:
-				anim.flip_h = false 
+				anim.flip_h = false  
 		else:
-			
 			anim.play("idle")
+
+
+func start_pickup_sequence() -> void:
+	is_picking_up = true
+	
+	if anim:
+		
+		if target_item.global_position.x < global_position.x:
+			anim.flip_h = true
+		else:
+			anim.flip_h = false
+			
+		anim.play("pickup")
+
+
+func _on_animation_finished() -> void:
+	if anim and anim.animation == "pickup":
+		
+		if target_item != null and is_instance_valid(target_item):
+			target_item.collect()
+			target_item = null
+			
+		
+		is_picking_up = false
 
 func checkForClickedItem() -> Area2D:
 	var space_state = get_world_2d().direct_space_state

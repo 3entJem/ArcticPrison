@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://dk3k5yuqs0y5d"]
+
+[ext_resource type="Script" uid="uid://c2ky6b5mlfo3a" path="res://WinGoings.gd" id="1_k8wnm"]
+[ext_resource type="FontFile" uid="uid://csn2yiu6i7b6y" path="res://Winter Draw.ttf" id="2_akwf7"]
+
+[node name="Win_scene" type="Node2D" unique_id=1657685945]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=662034631]
+script = ExtResource("1_k8wnm")
+
+[node name="EndingScene" type="VideoStreamPlayer" parent="CanvasLayer" unique_id=432175913]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Credits" type="VideoStreamPlayer" parent="CanvasLayer" unique_id=244662604]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="WinOptions" type="Control" parent="CanvasLayer" unique_id=1620253417]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MainMenuButton" type="Button" parent="CanvasLayer/WinOptions" unique_id=182393384]
+layout_mode = 0
+offset_left = 436.0
+offset_top = 340.0
+offset_right = 771.0
+offset_bottom = 431.0
+theme_override_fonts/font = ExtResource("2_akwf7")
+theme_override_font_sizes/font_size = 60
+text = "Main Menu"
+
+[node name="WinText" type="Label" parent="CanvasLayer/WinOptions" unique_id=2140715690]
+layout_mode = 0
+offset_left = 358.0
+offset_top = 154.0
+offset_right = 836.0
+offset_bottom = 237.0
+theme_override_fonts/font = ExtResource("2_akwf7")
+theme_override_font_sizes/font_size = 60
+text = "Everyone lives!!!!"
+
+[connection signal="button_up" from="CanvasLayer/WinOptions/MainMenuButton" to="CanvasLayer" method="_on_main_menu_button_pressed"]

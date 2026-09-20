@@ -7,7 +7,9 @@
 radius = 27.018513
 
 [node name="Snowball" type="Area2D" unique_id=895186104]
+z_index = 1
 script = ExtResource("1_i8p5v")
+cooldown_value = 10.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=292174305]
 position = Vector2(0, 1)

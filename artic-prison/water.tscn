@@ -8,7 +8,7 @@ size = Vector2(47, 77)
 
 [node name="Water" unique_id=895186104 instance=ExtResource("1_7wcun")]
 item_name = "Water"
-cooldown_value = 8.0
+cooldown_value = 16.0
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=292174305]
 position = Vector2(0.5, -8.5)

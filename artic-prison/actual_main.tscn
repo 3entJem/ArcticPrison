@@ -25,6 +25,8 @@
 [ext_resource type="PackedScene" uid="uid://b71j3fpq8nks0" path="res://olivia_npc.tscn" id="19_xm6a3"]
 [ext_resource type="PackedScene" uid="uid://dyxh112reb286" path="res://kiarra_npc.tscn" id="20_8sy4y"]
 [ext_resource type="PackedScene" uid="uid://ba3gnqqjnrwlw" path="res://kirra_npc.tscn" id="21_c8mwe"]
+[ext_resource type="AudioStream" uid="uid://cpxcdpl8bgl86" path="res://audio/nojisuma-bitterly-cold-110480.mp3" id="26_wd2yg"]
+[ext_resource type="AudioStream" uid="uid://uxb10of4hvyr" path="res://audio/u_2fbuaev0zn-select-sound-121244 (1).mp3" id="27_8s6rw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6t8we"]
 size = Vector2(1149, 647)
@@ -511,6 +513,15 @@ position = Vector2(2862, 473)
 
 [node name="OliviaNPC" parent="." unique_id=1650086363 instance=ExtResource("19_xm6a3")]
 position = Vector2(967, 483)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1680712819]
+position = Vector2(2880, 631)
+stream = ExtResource("26_wd2yg")
+autoplay = true
+
+[node name="PickupSound" type="AudioStreamPlayer2D" parent="." unique_id=802551171]
+position = Vector2(2880, 631)
+stream = ExtResource("27_8s6rw")
 
 [connection signal="button_down" from="UI/PauseButton" to="UI/PauseMenu" method="pause_game"]
 [connection signal="button_up" from="UI/PauseMenu/PlayButton" to="UI/PauseMenu" method="unpause_game"]

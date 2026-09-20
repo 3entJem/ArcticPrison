@@ -2,7 +2,7 @@ extends Control
 
 @export_file("*.tscn") var main_menu_scene_path: String
 
-# 🛑 DIRECT SCENE PATHS: Matches your hierarchy screenshot exactly!
+
 @onready var win_options = $WinOptions
 @onready var ending_container = $Ending
 @onready var credits_container = $Credits
@@ -14,7 +14,7 @@ extends Control
 @onready var credits_audio = $Credits/AudioStreamPlayer2D
 
 func _ready() -> void:
-	print("🎞️ Win Scene Initialized. Setting up layout tracks...")
+	print("Win Scene Initialized. Setting up layout tracks...")
 
 	
 	if win_options: win_options.visible = false

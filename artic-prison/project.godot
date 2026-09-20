@@ -13,6 +13,7 @@ config_version=5
 config/name="ArticPrison"
 run/main_scene="uid://cpv7iu6fwaccy"
 config/features=PackedStringArray("4.7", "Forward Plus")
+boot_splash/image="uid://b6i4kgnnuvpay"
 config/icon="res://icon.svg"
 
 [autoload]

@@ -5719,7 +5719,7 @@ sprite_frames = SubResource("SpriteFrames_vyapf")
 frame = 82
 frame_progress = 0.61853594
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="CanvasLayer/Credits" unique_id=432935220]
+[node name="CreditsSound" type="AudioStreamPlayer2D" parent="CanvasLayer/Credits" unique_id=432935220]
 stream = ExtResource("6_6gymp")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2073890450]

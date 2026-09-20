@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://dqsx42l8lgvq4" path="res://boilerTutorial.gd" id="2_5mrt3"]
 [ext_resource type="Script" uid="uid://ctehg12a4h3np" path="res://item_spawnerTutorial.gd" id="2_ehuit"]
 [ext_resource type="PackedScene" uid="uid://dlybbiapc2rnw" path="res://olivia_npc_norm.tscn" id="3_ehuit"]
-[ext_resource type="Script" uid="uid://rbhx1gtnohr5" path="res://boiler_drop_zoneTutorial.gd" id="3_rwowx"]
 
 [node name="tutorial" unique_id=114400913 instance=ExtResource("1_7n6eb")]
 
@@ -17,10 +16,6 @@ text = "1:00"
 [node name="boiler" parent="." index="8" unique_id=1031897542]
 script = ExtResource("2_5mrt3")
 heat_rate = 1.0
-survival_time_seconds = 10.0
-
-[node name="BoilerDropZone" parent="boiler" index="1" unique_id=214056464]
-script = ExtResource("3_rwowx")
 
 [node name="ItemSpawner" parent="." index="10" unique_id=1007138236]
 script = ExtResource("2_ehuit")

@@ -11,6 +11,7 @@ var target_item: Area2D = null
 var is_picking_up: bool = false
 
 @onready var anim = $AnimatedSprite2D
+@onready var pickup_sound: AudioStreamPlayer2D = $"../PickupSound"
 
 func _ready() -> void:
 	target_position = global_position.x
@@ -88,6 +89,7 @@ func start_pickup_sequence() -> void:
 			anim.flip_h = false
 			
 		anim.play("pickup")
+		pickup_sound.play()
 
 
 func _on_animation_finished() -> void:

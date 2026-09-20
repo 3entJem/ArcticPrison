@@ -7,6 +7,7 @@ extends Control
 @onready var win_options = $WinOptions
 @onready var ending_container = $Ending
 @onready var credits_container = $Credits
+@onready var credits_sound: AudioStreamPlayer2D = $Credits/CreditsSound
 
 @onready var ending_sprite = $Ending/EndingScene
 @onready var ending_audio = $Ending/AudioStreamPlayer2D
@@ -35,7 +36,7 @@ func _on_ending_scene_animation_finished() -> void:
 	
 	if credits_container: credits_container.visible = true
 	if credits_sprite: credits_sprite.play("default") 
-	if credits_audio: credits_audio.play()
+	if credits_sound: credits_sound.play()
 
 
 func _on_creditsanim_animation_finished() -> void:
@@ -43,7 +44,7 @@ func _on_creditsanim_animation_finished() -> void:
 	
 	
 	if credits_container: credits_container.visible = false
-	if credits_audio: credits_audio.stop()
+	if credits_sound: credits_sound.stop()
 	
 	
 	%WinOptions.visible = true
@@ -62,4 +63,4 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		$"../ArticPrisionWinVideoSpriteSheet".hide()
 	
 		%Creditsanim.play("default")
-		
+		$Credits/CreditsSound.play()

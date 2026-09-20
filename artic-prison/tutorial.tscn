@@ -8,12 +8,16 @@
 
 [node name="tutorial" unique_id=114400913 instance=ExtResource("1_7n6eb")]
 
+[node name="Player" parent="." index="1" unique_id=1801955731]
+position = Vector2(443, 436)
+
 [node name="TimeLabel" parent="UI" parent_id_path=PackedInt32Array(447120042) index="1" unique_id=1398328022]
 text = "1:00"
 
 [node name="boiler" parent="." index="8" unique_id=1031897542]
 script = ExtResource("2_5mrt3")
 heat_rate = 1.0
+survival_time_seconds = 10.0
 
 [node name="BoilerDropZone" parent="boiler" index="1" unique_id=214056464]
 script = ExtResource("3_rwowx")

@@ -3,7 +3,7 @@ extends CanvasLayer
 
 
 @export_file("*.tscn") var tutorial_level_path: String
-@export_file("*.tscn") var main_level_path: String # Used for BOTH Normal and Hard!
+@export_file("*.tscn") var main_level_path: String 
 
 @onready var logo_sprite = $LogoSprite
 @onready var main_options = $MainOptions

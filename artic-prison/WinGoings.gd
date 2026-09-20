@@ -1,54 +1,65 @@
-extends CanvasLayer
+extends Control
 
 
-# 🏠 FILE PATH SLOT FOR YOUR MAIN MENU
 @export_file("*.tscn") var main_menu_scene_path: String
 
-@onready var ending_video = $EndingVideo
-@onready var credits_video = $CreditsVideo
+
 @onready var win_options = $WinOptions
+@onready var ending_container = $Ending
+@onready var credits_container = $Credits
+
+@onready var ending_sprite = $Ending/EndingScene
+@onready var ending_audio = $Ending/AudioStreamPlayer2D
+
+@onready var credits_sprite = $Credits/Creditsanim
+@onready var credits_audio = $Credits/AudioStreamPlayer2D
 
 func _ready() -> void:
-	# 1. Initialize the layout states on scene load
-	if ending_video:
-		ending_video.visible = true
-		ending_video.play() # Start the victory animation immediately!
-		# Connect to its finished signal
-		ending_video.finished.connect(_on_ending_video_finished)
-		
-	if credits_video:
-		credits_video.visible = false
-		credits_video.finished.connect(_on_credits_video_finished)
-		
-	if win_options:
-		win_options.visible = false
-
-# 🛑 RELAY 1: Triggers the exact frame the ending animation video finishes
-func _on_ending_video_finished() -> void:
-	print("Ending animation complete. Moving to credits video...")
+	%Creditsanim.show()
+	#if win_options: win_options.visible = false
+	#if credits_container: credits_container.visible = false
 	
-	if ending_video:
-		ending_video.visible = false
-		
-	if credits_video:
-		credits_video.visible = true
-		credits_video.play() # Start the credit roll video!
-
-# 🛑 RELAY 2: Triggers the exact frame the credits video finishes rolling
-func _on_credits_video_finished() -> void:
-	print("Credits complete. Revealing text and main menu button...")
 	
-	if credits_video:
-		credits_video.visible = false
-		
-	if win_options:
-		win_options.visible = true # Pop up your text and button container!
+	if ending_container: ending_container.visible = true
+	if ending_sprite: ending_sprite.play("default") 
+	if ending_audio: ending_audio.play()
 
-# Connected to your MainMenuButton's pressed() signal via the Node panel tab
+
+func _on_ending_scene_animation_finished() -> void:
+	print("Ending animation complete. Moving to credits sequence...")
+	
+	
+	if ending_container: ending_container.visible = false
+	if ending_audio: ending_audio.stop()
+	
+	
+	if credits_container: credits_container.visible = true
+	if credits_sprite: credits_sprite.play("default") 
+	if credits_audio: credits_audio.play()
+
+
+func _on_creditsanim_animation_finished() -> void:
+	print("Credits complete. Revealing menu options text and buttons...")
+	
+	
+	if credits_container: credits_container.visible = false
+	if credits_audio: credits_audio.stop()
+	
+	
+	%WinOptions.visible = true
+
+
 func _on_main_menu_button_pressed() -> void:
 	print("Returning to Title Screen...")
-	
 	if main_menu_scene_path != "":
 		get_tree().change_scene_to_file(main_menu_scene_path)
 	else:
-		print("⚠️ Note: Drag your primary MainMenu.tscn scene file into this inspector path slot!")
+		print(" Note: Drag your primary MainMenu.tscn scene file into this script's path box!")
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "animation":
+		$"../ArticPrisionWinVideoSpriteSheet".hide()
+	
+		%Creditsanim.play("default")
+		

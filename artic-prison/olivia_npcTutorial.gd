@@ -117,13 +117,13 @@ func advance_tutorial_dialogue() -> void:
 				timer.start()
 				print("Spawner Activated by dialogue handshake!")
 				
-		# 🛑 3. WAKE UP THE BOILER (The missing link!)
+		# 
 		var boiler = get_tree().root.find_child("boiler", true, false)
 		if boiler:
-			boiler.set_process(true) # Force the boiler script to start updating its heat!
-			print("🔥 Boiler Activated by dialogue handshake!")
+			boiler.set_process(true) 
+			print("Boiler Activated by dialogue handshake!")
 				
-		set_process_input(false) # Turn off input listener so clicking 'E' later won't break things
+		set_process_input(false) 
 
 func lock_level_systems(should_lock: bool) -> void:
 	var boiler = get_tree().root.find_child("Boiler", true, false)

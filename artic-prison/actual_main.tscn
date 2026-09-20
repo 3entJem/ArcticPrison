@@ -123,6 +123,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nsymq"]
 size = Vector2(1154, 34)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0b8cf"]
+size = Vector2(1154, 34)
+
 [sub_resource type="LabelSettings" id="LabelSettings_6t8we"]
 font = ExtResource("10_vjvpp")
 font_size = 70
@@ -324,7 +327,7 @@ disable_mode = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="floor3" unique_id=601467353]
 position = Vector2(2, 35)
-shape = SubResource("RectangleShape2D_nsymq")
+shape = SubResource("RectangleShape2D_0b8cf")
 debug_color = Color(0, 0, 0, 0.41960785)
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=447120042]

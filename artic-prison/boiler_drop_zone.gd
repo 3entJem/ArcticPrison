@@ -8,7 +8,7 @@ func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
 func _drop_data(_at_position: Vector2, data: Variant) -> void:
 	var item_node = data["item_node"]
 	
-	print("🎯 NATIVE UI DROP TARGET HIT! Feeding item: ", item_node.name)
+	print("NATIVE UI DROP TARGET HIT! Feeding item: ", item_node.name)
 	
 	
 	if boiler.has_method("feed_boiler"):
@@ -24,7 +24,7 @@ func _drop_data(_at_position: Vector2, data: Variant) -> void:
 		for i in range(inv_panel.inventory_data.size()):
 			var slot_entry = inv_panel.inventory_data[i]
 			if slot_entry != null and slot_entry.has("node") and slot_entry["node"] == item_node:
-				inv_panel.inventory_data[i] = null # 🛑 CLEAR IT CLEANLY!
+				inv_panel.inventory_data[i] = null 
 				print("Successfully matched and cleared inventory data array slot: ", i)
 				cleared_successfully = true
 				break

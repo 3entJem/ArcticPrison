@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://cyfg1b4vk3obl"]
+
+[ext_resource type="Texture2D" uid="uid://k5b3jybhs0pm" path="res://art/Prisoner888DeathScreenTooCold.png" id="1_fhars"]
+
+[node name="Cold" type="Sprite2D" unique_id=1635780228]
+scale = Vector2(1.1657102, 1.090566)
+texture = ExtResource("1_fhars")

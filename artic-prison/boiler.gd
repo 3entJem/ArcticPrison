@@ -89,10 +89,14 @@ func trigger_loss(reason: String) -> void:
 	game_over = true
 	print(reason, " Game Over!")
 	
+	# 🛑 THE FIX: Tag if it was an explosion or a freeze update!
+	if "Overheated" in reason or "" in reason:
+		GlobalSettings.loss_reason_type = "Hot"
+	elif "Frozen" in reason or "" in reason:
+		GlobalSettings.loss_reason_type = "Cold"
+	
 	if lose_scene_path != "":
 		get_tree().change_scene_to_file(lose_scene_path)
-	else:
-		print("Note: Drag your Lose.tscn file into the Boiler's inspector slot to load it here!")
 
 func trigger_win() -> void:
 	level_won = true

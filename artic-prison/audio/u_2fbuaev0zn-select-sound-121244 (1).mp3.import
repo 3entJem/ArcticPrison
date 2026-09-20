@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://uxb10of4hvyr"
+path="res://.godot/imported/u_2fbuaev0zn-select-sound-121244 (1).mp3-44cf8e64efdbd95bac5efee0b3b0a8ed.mp3str"
+
+[deps]
+
+source_file="res://audio/u_2fbuaev0zn-select-sound-121244 (1).mp3"
+dest_files=["res://.godot/imported/u_2fbuaev0zn-select-sound-121244 (1).mp3-44cf8e64efdbd95bac5efee0b3b0a8ed.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

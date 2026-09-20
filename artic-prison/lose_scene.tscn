@@ -1,8 +1,12 @@
 [gd_scene format=3 uid="uid://bwwgixkvuq4kt"]
 
 [ext_resource type="Script" uid="uid://dnsi8xnkg4mld" path="res://LoseGoings.gd" id="1_4okea"]
-[ext_resource type="Texture2D" uid="uid://ufl6vtq8benk" path="res://art/Prisoner888DeathScreen.png" id="2_1rcl5"]
 [ext_resource type="FontFile" uid="uid://csn2yiu6i7b6y" path="res://Winter Draw.ttf" id="2_5lo34"]
+[ext_resource type="AudioStream" uid="uid://b0gy7eoarikmx" path="res://audio/ArticPrisionDeathScreenVersion01Audio.MP3" id="3_gsyjj"]
+[ext_resource type="AudioStream" uid="uid://b432ocb078oke" path="res://audio/ArticPrisonDeathMenuVersion02Audio.MP3" id="4_25jnf"]
+[ext_resource type="AudioStream" uid="uid://g8akbax5hc0b" path="res://audio/happinessinmusic-christmas-background-music-452092.mp3" id="7_dmuyv"]
+[ext_resource type="PackedScene" uid="uid://dyyncds5uawo0" path="res://art/hot.tscn" id="7_ldjdg"]
+[ext_resource type="PackedScene" uid="uid://cyfg1b4vk3obl" path="res://cold.tscn" id="8_vkyv2"]
 
 [node name="lose_scene" type="Node2D" unique_id=2106993338]
 
@@ -11,11 +15,32 @@ script = ExtResource("1_4okea")
 main_level_scene_path = "uid://ildbyyh0hps2"
 tutorial_level_scene_path = "uid://cnwqkwh3coebu"
 main_menu_scene_path = "uid://cpv7iu6fwaccy"
+hot_audio_stream = ExtResource("3_gsyjj")
+cold_audio_stream = ExtResource("4_25jnf")
 
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer" unique_id=1028976017]
+[node name="HotEnding" type="Control" parent="CanvasLayer" unique_id=46602449]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="CanvasLayer/HotEnding" unique_id=1232289993]
+stream = ExtResource("3_gsyjj")
+
+[node name="ColdEnding" type="Control" parent="CanvasLayer" unique_id=1812800369]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="CanvasLayer/ColdEnding" unique_id=11447936]
+stream = ExtResource("7_dmuyv")
+
+[node name="Hot" parent="CanvasLayer" unique_id=1788245301 instance=ExtResource("7_ldjdg")]
 position = Vector2(614, 242)
-scale = Vector2(1.1657102, 1.090566)
-texture = ExtResource("2_1rcl5")
+
+[node name="Cold" parent="CanvasLayer" unique_id=1635780228 instance=ExtResource("8_vkyv2")]
+position = Vector2(614, 242)
 
 [node name="TryAgainButton" type="Button" parent="CanvasLayer" unique_id=2139897218]
 offset_left = 417.0

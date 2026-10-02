@@ -515,12 +515,12 @@ position = Vector2(2862, 473)
 position = Vector2(967, 483)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1680712819]
-position = Vector2(2880, 631)
+position = Vector2(1703, 331)
 stream = ExtResource("26_wd2yg")
 autoplay = true
 
 [node name="PickupSound" type="AudioStreamPlayer2D" parent="." unique_id=802551171]
-position = Vector2(2880, 631)
+position = Vector2(1729, 316)
 stream = ExtResource("27_8s6rw")
 
 [connection signal="button_down" from="UI/PauseButton" to="UI/PauseMenu" method="pause_game"]

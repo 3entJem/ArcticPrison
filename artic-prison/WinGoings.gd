@@ -9,11 +9,10 @@ extends Control
 @onready var credits_container = $Credits
 @onready var credits_sound: AudioStreamPlayer2D = $Credits/CreditsSound
 
-@onready var ending_sprite = $Ending/EndingScene
+
 @onready var ending_audio = $Ending/AudioStreamPlayer2D
 
-@onready var credits_sprite = $Credits/Creditsanim
-@onready var credits_audio = $Credits/AudioStreamPlayer2D
+
 
 func _ready() -> void:
 	%Creditsanim.show()
@@ -22,21 +21,21 @@ func _ready() -> void:
 	
 	
 	if ending_container: ending_container.visible = true
-	if ending_sprite: ending_sprite.play("default") 
+
 	if ending_audio: ending_audio.play()
 
 
-func _on_ending_scene_animation_finished() -> void:
-	print("Ending animation complete. Moving to credits sequence...")
+#func _on_ending_scene_animation_finished() -> void:
+	#print("Ending animation complete. Moving to credits sequence...")
 	
 	
-	if ending_container: ending_container.visible = false
-	if ending_audio: ending_audio.stop()
+	#if ending_container: ending_container.visible = false
+	#if ending_audio: ending_audio.stop()
 	
 	
-	if credits_container: credits_container.visible = true
-	if credits_sprite: credits_sprite.play("default") 
-	if credits_sound: credits_sound.play()
+	#if credits_container: credits_container.visible = true
+	#if credits_sprite: credits_sprite.play("default") 
+	#if credits_sound: credits_sound.play()
 
 
 func _on_creditsanim_animation_finished() -> void:
@@ -61,6 +60,7 @@ func _on_main_menu_button_pressed() -> void:
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "animation":
 		$"../ArticPrisionWinVideoSpriteSheet".hide()
-	
-		%Creditsanim.play("default")
+		
 		$Credits/CreditsSound.play()
+		%Creditsanim.play("default")
+		

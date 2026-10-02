@@ -29,7 +29,7 @@ var active_ui_label: Label = null
 func _ready() -> void:
 	GlobalSettings.current_difficulty = "Tutorial"
 	lock_level_systems(true)
-	
+	$"../UI/Guide".visible = true
 	if anim:
 		anim.play(idle_animation_name)
 	if speech_bubble:
@@ -39,7 +39,10 @@ func _ready() -> void:
 	if sensor and sensor is Area2D:
 		sensor.body_entered.connect(_on_proximity_sensor_body_entered)
 		print("Sensor successfully connected itself directly in code!")
-
+		
+func _on_guide_button_pressed () -> void:
+	$"../UI/Guide".visible = false
+	
 func _process(delta: float) -> void:
 	if player_node != null and anim != null:
 		var dir = player_node.global_position.x - global_position.x

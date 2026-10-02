@@ -4,8 +4,8 @@
 [ext_resource type="FontFile" uid="uid://csn2yiu6i7b6y" path="res://Winter Draw.ttf" id="2_akwf7"]
 [ext_resource type="Texture2D" uid="uid://cx06yoihxly5r" path="res://spritesheets/ArticPrisionWinVideoSpriteSheet.png" id="3_sel2p"]
 [ext_resource type="AudioStream" uid="uid://bqae1cqo7c8yt" path="res://audio/WInScreenAudio.MP3" id="4_y8qen"]
+[ext_resource type="AudioStream" uid="uid://4d78xqaumyl1" path="res://audio/AudioForCredits.MP3" id="5_6gymp"]
 [ext_resource type="Texture2D" uid="uid://butx6qpk7exgu" path="res://spritesheets/Credits.png" id="5_226jj"]
-[ext_resource type="AudioStream" uid="uid://q7ybqrfbw00w" path="res://audio/AudioForCreditsArcticPrison.MP3" id="6_6gymp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a01fv"]
 atlas = ExtResource("5_226jj")
@@ -5720,7 +5720,7 @@ frame = 82
 frame_progress = 0.61853594
 
 [node name="CreditsSound" type="AudioStreamPlayer2D" parent="CanvasLayer/Credits" unique_id=432935220]
-stream = ExtResource("6_6gymp")
+stream = ExtResource("5_6gymp")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2073890450]
 

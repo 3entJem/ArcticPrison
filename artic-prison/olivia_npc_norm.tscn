@@ -10,3 +10,10 @@ character_reveal_speed = 0.03
 
 [node name="SpeechBubble" parent="." index="2" unique_id=1692039123]
 visible = true
+offset_left = -237.0
+offset_top = -220.0
+offset_right = -197.0
+offset_bottom = -180.0
+
+[node name="DialogueLabel" parent="SpeechBubble" index="0" unique_id=414325442]
+offset_right = 230.0

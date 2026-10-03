@@ -25,7 +25,13 @@ position = Vector2(443, 436)
 [node name="TimeLabel" parent="UI" parent_id_path=PackedInt32Array(447120042) index="1" unique_id=1398328022]
 text = "1:00"
 
-[node name="Guide" type="Node2D" parent="UI" parent_id_path=PackedInt32Array(447120042) index="5" unique_id=1565985759]
+[node name="Guide" type="Control" parent="UI" parent_id_path=PackedInt32Array(447120042) index="5" unique_id=1494481894]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -2.0
+offset_top = -3.0
+offset_right = 1153.0
+offset_bottom = 643.0
 
 [node name="coverSprite" type="Sprite2D" parent="UI/Guide" index="0" unique_id=1803934693]
 modulate = Color(1, 1, 1, 0.5372549)
@@ -34,6 +40,7 @@ scale = Vector2(18.5625, 10.53125)
 texture = SubResource("GradientTexture2D_vyapf")
 
 [node name="Label" type="Label" parent="UI/Guide" index="1" unique_id=872707961]
+layout_mode = 0
 offset_left = 11.0
 offset_top = 9.0
 offset_right = 1131.0
@@ -45,6 +52,7 @@ label_settings = SubResource("LabelSettings_6t8we")
 autowrap_mode = 2
 
 [node name="Button" type="Button" parent="UI/Guide" index="2" unique_id=755608464]
+layout_mode = 0
 offset_left = 373.0
 offset_top = 400.0
 offset_right = 690.0

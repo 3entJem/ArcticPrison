@@ -33,7 +33,7 @@ func _ready() -> void:
 	if anim:
 		anim.play(idle_animation_name)
 	if speech_bubble:
-		speech_bubble.visible = true
+		speech_bubble.visible = false
 		
 	var sensor = find_child("ProximitySensor", true, false)
 	if sensor and sensor is Area2D:
@@ -50,7 +50,7 @@ func _process(delta: float) -> void:
 		
 	if speech_bubble != null and speech_bubble.visible:
 		bubble_shake_timer += delta * 25.0
-		speech_bubble.position = Vector2(-150.0, -200.0) + Vector2(sin(bubble_shake_timer) * 3.0, 0.0)
+		speech_bubble.position = Vector2(-250.0, -200.0) + Vector2(sin(bubble_shake_timer) * 3.0, 0.0)
 		
 		if active_ui_label == null:
 			active_ui_label = speech_bubble.get_node_or_null("DialogueLabel")
@@ -66,7 +66,7 @@ func _process(delta: float) -> void:
 		
 		if active_ui_label and active_ui_label.text != "":
 			var text_size = active_ui_label.get_minimum_size()
-			speech_bubble.size.x = max(140.0, text_size.x + 40.0) # Expanded minimum width boundary
+			speech_bubble.size.x = max(225.0, text_size.x + 80.0) # Expanded minimum width boundary
 			speech_bubble.size.y = max(80.0, text_size.y + 40.0)
 
 func _on_proximity_sensor_body_entered(body: Node2D) -> void:
@@ -91,6 +91,8 @@ func _input(event: InputEvent) -> void:
 				advance_tutorial_dialogue()
 
 func advance_tutorial_dialogue() -> void:
+	speech_bubble.visible = true
+	
 	if active_ui_label == null and speech_bubble != null:
 		active_ui_label = speech_bubble.get_node_or_null("DialogueLabel")
 

@@ -4,7 +4,7 @@ extends StaticBody2D
 @export var max_temperature: float = 100.0 
 @export var heat_rate: float = 2.0        
 
-
+@onready var is_tutorial: bool = true
 @export var survival_time_seconds: float = 180.0 
 var time_left: float = 0.0
 
@@ -24,6 +24,10 @@ var game_over: bool = false
 var level_won: bool = false
 
 func _ready() -> void:
+	GlobalSettings.current_boiler = self
+	GlobalSettings.tutorial_is_active = true
+	print("current_boiler is tutorial")
+	GlobalSettings.current_difficulty = "Tutorial"
 	GlobalSettings.active_level_scene_path = scene_file_path
 	heat_rate = GlobalSettings.get_current_heat_rate()
 	time_left = survival_time_seconds

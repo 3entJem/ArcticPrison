@@ -3,7 +3,7 @@ extends Node
 var current_difficulty: String = "Normal"
 var active_level_scene_path: String = ""
 var tutorial_is_active: bool = false
-
+var current_boiler: Node = null
 
 var loss_reason_type: String = "Hot"
 

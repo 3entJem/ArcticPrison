@@ -8,21 +8,29 @@ extends Control
 @onready var ending_container = $Ending
 @onready var credits_container = $Credits
 @onready var credits_sound: AudioStreamPlayer2D = $Credits/CreditsSound
-
+@onready var is_tutorial_mode: bool = false
 
 @onready var ending_audio = $Ending/AudioStreamPlayer2D
 
 
 
 func _ready() -> void:
-	%Creditsanim.show()
-	#if win_options: win_options.visible = false
-	#if credits_container: credits_container.visible = false
-	
-	
-	if ending_container: ending_container.visible = true
+	#var previous_scene = GlobalSettings.active_level_scene_path
+	if GlobalSettings.current_difficulty == "Tutorial":
+		print("recognized as tutorial")
+		%WinOptions.visible = true
+		%Credits.visible = false
+		ending_audio.stop()
+		$Credits/CreditsSound.stop()
+		
+		$"../ArticPrisionWinVideoSpriteSheet".visible = false
+	else:
+		print("recognized as NOT tutorial")
+		if ending_container: ending_container.visible = true
 
-	if ending_audio: ending_audio.play()
+		if ending_audio: ending_audio.play()
+	
+	
 
 
 #func _on_ending_scene_animation_finished() -> void:

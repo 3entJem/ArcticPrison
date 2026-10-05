@@ -24,7 +24,9 @@ var game_over: bool = false
 var level_won: bool = false
 
 func _ready() -> void:
-	
+	GlobalSettings.current_boiler = self
+	print("current_boiler is NOT tutorial")
+	GlobalSettings.tutorial_is_active = false
 	GlobalSettings.active_level_scene_path = scene_file_path
 	
 	heat_rate = GlobalSettings.get_current_heat_rate()

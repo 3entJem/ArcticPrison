@@ -8,12 +8,34 @@ extends CanvasLayer
 @onready var logo_sprite = $LogoSprite
 @onready var main_options = $MainOptions
 @onready var difficulty_options = $DifficultyOptions
+var camera_speed: float = 400.0
 
 func _ready() -> void:
 	if logo_sprite: logo_sprite.visible = true
 	if main_options: main_options.visible = true
 	if difficulty_options: difficulty_options.visible = false
-
+	#$OptionsOptions/MasterSlider.value = SaveManager.master_volume
+	#$OptionsOptions/MusicSlider.value = SaveManager.music_volume
+	
+	#$OptionsOptions/CameraSlider.value = SaveManager.camera_speed
+	
+func _on_music_slider_changed(value: float) -> void:
+	SaveManager.music_volume = value
+	SaveManager.apply_music_volume(value)
+	
+	SaveManager.save_settings()
+	
+func _on_master_slider_changed(value: float) -> void:
+	SaveManager.master_volume = value
+	SaveManager.apply_master_volume(value)
+	
+	SaveManager.save_settings()
+	
+func _on_camera_slider_changed(value: float) -> void:
+	SaveManager.camera_speed = value
+	
+	SaveManager.save_settings()
+	
 func _on_new_game_button_pressed() -> void:
 	print("New Game clicked! Flipping global settings to Tutorial ignition lock...")
 	
@@ -29,6 +51,20 @@ func _on_levels_button_pressed() -> void:
 	if main_options: main_options.visible = false
 	if difficulty_options: difficulty_options.visible = true
 
+func _on_options_button_pressed() -> void:
+	if logo_sprite: logo_sprite.visible = false
+	if main_options: main_options.visible = false
+	$OptionsOptions.visible = true
+	$OptionsOptions/MasterSlider.value = SaveManager.master_volume
+	$OptionsOptions/MusicSlider.value = SaveManager.music_volume
+	
+	$OptionsOptions/CameraSlider.value = SaveManager.camera_speed
+	
+func _on_options_back_button_pressed() -> void:
+	if logo_sprite: logo_sprite.visible = true
+	if main_options: main_options.visible = true
+	$OptionsOptions.visible = false
+	
 func _on_quit_button_pressed() -> void:
 	get_tree().quit()
 

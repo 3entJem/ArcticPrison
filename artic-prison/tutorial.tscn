@@ -82,4 +82,7 @@ position = Vector2(1544, 718)
 [node name="OliviaNpcNorm" parent="." index="18" unique_id=1655642293 instance=ExtResource("3_ehuit")]
 position = Vector2(942, 414)
 
+[node name="AudioStreamPlayer2D" parent="." index="19" unique_id=1680712819]
+bus = &"Music"
+
 [connection signal="pressed" from="UI/Guide/Button" to="OliviaNpcNorm" method="_on_guide_button_pressed"]

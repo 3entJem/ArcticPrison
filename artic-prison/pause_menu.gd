@@ -43,3 +43,37 @@ func pause_game() -> void:
 func unpause_game() -> void:
 	get_tree().paused = false
 	visible = false 
+	
+func _on_music_slider_changed(value: float) -> void:
+	SaveManager.music_volume = value
+	SaveManager.apply_music_volume(value)
+	
+	SaveManager.save_settings()
+	
+func _on_master_slider_changed(value: float) -> void:
+	SaveManager.master_volume = value
+	SaveManager.apply_master_volume(value)
+	
+	SaveManager.save_settings()
+	
+func _on_camera_slider_changed(value: float) -> void:
+	SaveManager.camera_speed = value
+	
+	SaveManager.save_settings()
+	
+func _on_options_button_pressed() -> void:
+	$MainMenuButton.visible = false
+	$PlayButton.visible = false
+	$OptionsMenu.visible = true
+	$OptionsButton.visible = false
+	
+	$OptionsMenu/MasterSlider.value = SaveManager.master_volume
+	$OptionsMenu/MusicSlider.value = SaveManager.music_volume
+	
+	$OptionsMenu/CameraSlider.value = SaveManager.camera_speed
+	
+func _on_options_back_button_pressed() -> void:
+	$OptionsMenu.visible = false
+	$OptionsButton.visible = true
+	$MainMenuButton.visible = true
+	$PlayButton.visible = true

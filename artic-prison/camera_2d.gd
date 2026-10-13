@@ -17,7 +17,7 @@ func _process(delta: float) -> void:
 		cam_dir -= 1.0  
 	
 	
-	global_position.x += cam_dir * camera_speed * delta
+	global_position.x += cam_dir * SaveManager.camera_speed * delta
 
 	
 	var viewport_width = get_viewport_rect().size.x

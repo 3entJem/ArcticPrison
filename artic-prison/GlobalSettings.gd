@@ -18,3 +18,4 @@ func get_current_heat_rate() -> float:
 
 func get_current_spawn_time() -> float:
 	return presets[current_difficulty]["spawn_time"]
+	

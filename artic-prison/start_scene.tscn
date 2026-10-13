@@ -8,6 +8,11 @@
 [ext_resource type="Texture2D" uid="uid://bj4ggcb6ab0ip" path="res://spritesheets/Prisoner888ShakeSpriteSheet.png" id="5_53hov"]
 [ext_resource type="Script" uid="uid://cqvij63ui6j6r" path="res://shivering_char.gd" id="6_bg18w"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_6t8we"]
+font = ExtResource("2_kyjdd")
+font_size = 60
+shadow_color = Color(0, 0, 0, 1)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_cfqn4"]
 atlas = ExtResource("5_53hov")
 region = Rect2(0, 0, 300, 300)
@@ -325,13 +330,23 @@ text = "New Game"
 
 [node name="QuitButton" type="Button" parent="CanvasLayer/MainOptions" unique_id=229774892]
 layout_mode = 0
-offset_left = 52.0
-offset_top = 324.0
-offset_right = 373.0
-offset_bottom = 424.0
+offset_left = 48.0
+offset_top = 444.0
+offset_right = 369.0
+offset_bottom = 544.0
 theme_override_fonts/font = ExtResource("2_kyjdd")
 theme_override_font_sizes/font_size = 60
 text = "Quit"
+
+[node name="OptionsButton" type="Button" parent="CanvasLayer/MainOptions" unique_id=1495076483]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 331.0
+offset_right = 369.0
+offset_bottom = 431.0
+theme_override_fonts/font = ExtResource("2_kyjdd")
+theme_override_font_sizes/font_size = 60
+text = "Options"
 
 [node name="LevelsButton" type="Button" parent="CanvasLayer/MainOptions" unique_id=570651243]
 layout_mode = 0
@@ -395,6 +410,78 @@ text = "Back
 
 "
 
+[node name="OptionsOptions" type="Control" parent="CanvasLayer" unique_id=707373089]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MusicVolumeText" type="Label" parent="CanvasLayer/OptionsOptions" unique_id=1028757955]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 238.0
+offset_right = 401.0
+offset_bottom = 312.0
+text = "Music Volume"
+label_settings = SubResource("LabelSettings_6t8we")
+
+[node name="CameraSensitivity" type="Label" parent="CanvasLayer/OptionsOptions" unique_id=2095475404]
+layout_mode = 0
+offset_left = 53.0
+offset_top = 333.0
+offset_right = 464.0
+offset_bottom = 418.0
+text = "Camera Sensitivity"
+label_settings = SubResource("LabelSettings_6t8we")
+
+[node name="BackButton" type="Button" parent="CanvasLayer/OptionsOptions" unique_id=1805780469]
+layout_mode = 0
+offset_left = 57.0
+offset_top = 475.0
+offset_right = 373.0
+offset_bottom = 565.0
+theme_override_fonts/font = ExtResource("2_kyjdd")
+theme_override_font_sizes/font_size = 60
+text = "Back"
+
+[node name="MusicSlider" type="HSlider" parent="CanvasLayer/OptionsOptions" unique_id=471860583]
+layout_mode = 0
+offset_left = 71.0
+offset_top = 325.0
+offset_right = 506.0
+offset_bottom = 341.0
+max_value = 1.0
+step = 0.01
+
+[node name="MasterVolumeText" type="Label" parent="CanvasLayer/OptionsOptions" unique_id=1904830768]
+layout_mode = 0
+offset_left = 46.0
+offset_top = 129.0
+offset_right = 398.0
+offset_bottom = 203.0
+text = "Master Volume"
+label_settings = SubResource("LabelSettings_6t8we")
+
+[node name="MasterSlider" type="HSlider" parent="CanvasLayer/OptionsOptions" unique_id=1432434377]
+layout_mode = 0
+offset_left = 68.0
+offset_top = 216.0
+offset_right = 503.0
+offset_bottom = 232.0
+max_value = 1.0
+step = 0.01
+
+[node name="CameraSlider" type="HSlider" parent="CanvasLayer/OptionsOptions" unique_id=1600975077]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 423.0
+offset_right = 507.0
+offset_bottom = 439.0
+min_value = 100.0
+max_value = 1000.0
+value = 100.0
+
 [node name="ShiveringChar" type="AnimatedSprite2D" parent="CanvasLayer" unique_id=1853277813]
 position = Vector2(1020, 506)
 sprite_frames = SubResource("SpriteFrames_6t8we")
@@ -404,11 +491,17 @@ script = ExtResource("6_bg18w")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=2111929093]
 stream = ExtResource("3_jfucu")
 autoplay = true
+bus = &"Music"
 
 [connection signal="button_up" from="CanvasLayer/MainOptions/NewGameButton" to="CanvasLayer" method="_on_new_game_button_pressed"]
 [connection signal="button_down" from="CanvasLayer/MainOptions/QuitButton" to="CanvasLayer" method="_on_quit_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MainOptions/OptionsButton" to="CanvasLayer" method="_on_options_button_pressed"]
 [connection signal="button_down" from="CanvasLayer/MainOptions/LevelsButton" to="CanvasLayer" method="_on_levels_button_pressed"]
 [connection signal="button_up" from="CanvasLayer/DifficultyOptions/TutorialButton" to="CanvasLayer" method="_on_tutorial_button_pressed"]
 [connection signal="button_down" from="CanvasLayer/DifficultyOptions/NormalButton" to="CanvasLayer" method="_on_normal_button_pressed"]
 [connection signal="button_up" from="CanvasLayer/DifficultyOptions/HardButton" to="CanvasLayer" method="_on_hard_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/DifficultyOptions/BackButton" to="CanvasLayer" method="_on_back_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/OptionsOptions/BackButton" to="CanvasLayer" method="_on_options_back_button_pressed"]
+[connection signal="value_changed" from="CanvasLayer/OptionsOptions/MusicSlider" to="CanvasLayer" method="_on_music_slider_changed"]
+[connection signal="value_changed" from="CanvasLayer/OptionsOptions/MasterSlider" to="CanvasLayer" method="_on_master_slider_changed"]
+[connection signal="value_changed" from="CanvasLayer/OptionsOptions/CameraSlider" to="CanvasLayer" method="_on_camera_slider_changed"]

@@ -520,6 +520,7 @@ value = 100.0
 position = Vector2(95, 487)
 input_pickable = true
 script = ExtResource("6_4o2no")
+survival_time_seconds = 1.0
 win_scene_path = "uid://dk3k5yuqs0y5d"
 lose_scene_path = "uid://bwwgixkvuq4kt"
 

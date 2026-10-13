@@ -29,6 +29,8 @@ func _ready() -> void:
 		if ending_container: ending_container.visible = true
 
 		if ending_audio: ending_audio.play()
+		
+		%Creditsanim.hide()
 	
 	
 
@@ -68,7 +70,7 @@ func _on_main_menu_button_pressed() -> void:
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "animation":
 		$"../ArticPrisionWinVideoSpriteSheet".hide()
-		
+		%Creditsanim.show()
 		$Credits/CreditsSound.play()
 		%Creditsanim.play("default")
 		
